@@ -1,5 +1,7 @@
 {
   "name": "akita-navigation",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
