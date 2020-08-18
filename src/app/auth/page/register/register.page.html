@@ -1,0 +1,27 @@
+<ion-content class="ion-padding" scroll-y=false>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-input color="light" placeholder="Email" type="email" inputmode="email" name="email" formControlName="email" tabindex="1" (keyup.enter)="pwdInput.setFocus();"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input #pwdInput color="light" placeholder="Password" type="password" inputmode="password" name="password" formControlName="password" tabindex="2"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input #pwdInput color="light" placeholder="Confirm" type="password" inputmode="password" name="password_confirmation" formControlName="password_confirmation" tabindex="3"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <!-- Submit -->
+      <ion-button class="ion-margin-vertical" expand="block" type="submit" color="light">
+        Sign Up
+      </ion-button>
+    </form>
+
+    <p class="ion-text-center">
+      <a routerLink="/login" class="create-account">Sign in</a>
+    </p>
+</ion-content>
