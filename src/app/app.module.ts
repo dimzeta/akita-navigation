@@ -13,8 +13,6 @@ import { AppComponent } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
-import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,10 +20,13 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    IonicStorageModule.forRoot(),
+    IonicStorageModule.forRoot({
+      name: 'Akita-Navigation',
+      version: 1.0,
+      storeName: 'akita-navigation-storage',
+      driverOrder: ['indexeddb', 'websql', 'localstorage', 'sqlite']
+    }),
     AppRoutingModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot(),
-    AkitaNgRouterStoreModule.forRoot()
   ],
   providers: [
     StatusBar,

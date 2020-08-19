@@ -12,9 +12,19 @@ if (environment.production) {
   enableAkitaProdMode();
 }
 
+import * as localForage from 'localforage';
+
+localForage.config({
+  driver: localForage.INDEXEDDB,
+  name: 'Akita-Navigation',
+  version: 1.0,
+  storeName: 'akita-navigation-storage',
+});
+
 const storage = persistState({
   include: ['auth'],
-  storage: new IonicStorage,
+  // storage: new IonicStorage,
+  storage: localForage,
   preStorageUpdateOperator: () => debounceTime(2000)
 });
 
